@@ -1,4 +1,10 @@
 class Api::V1::CoordinatesController < Api::V1::BaseController
+    before_action :set_coordinate, only: [ :result ]
+    def show
+
+    end
+
+    
     def create
         @coordinate = Coordinate.new(coordinate_params)
         @coordinate.user = current_user
@@ -11,10 +17,14 @@ class Api::V1::CoordinatesController < Api::V1::BaseController
     end
 
     def result
-        @coordinate = Coordinate.find(params[:id])
     end
 
     private
+
+    def set_coordinate
+        @coordinate = Coordinate.find(params[:id])
+        authorize @coordinate
+    end
 
     def coordinate_params
         params.require(:coordinate).permit(:movimento)
