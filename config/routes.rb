@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :coordinates, only: [:result, :create]
+      resources :coordinates, only: [:show, :create]
     end
   end
 end

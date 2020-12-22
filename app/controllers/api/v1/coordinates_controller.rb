@@ -1,10 +1,9 @@
 class Api::V1::CoordinatesController < Api::V1::BaseController
     before_action :set_coordinate, only: [ :result ]
+    
     def show
-
     end
 
-    
     def create
         @coordinate = Coordinate.new(coordinate_params)
         @coordinate.user = current_user
@@ -14,9 +13,6 @@ class Api::V1::CoordinatesController < Api::V1::BaseController
         else
             render_error
         end
-    end
-
-    def result
     end
 
     private

@@ -9,7 +9,7 @@ class CoordinatePolicy < ApplicationPolicy
     true
   end
 
-  def result?
+  def show?
     true
   end
 end
